@@ -5655,7 +5655,7 @@ end
 local aD=aq.Frame.Position.X.Offset
 local aE=math.abs(aC.Position.X-ay)
 
-if aE<10 then
+if aE<40 then
 ax:Set(not ax.Value,true,false)
 else
 local aF=aD+at/2
@@ -10262,7 +10262,7 @@ Acrylic=ar.Acrylic or false,
 NewElements=ar.NewElements or false,
 IgnoreAlerts=ar.IgnoreAlerts or false,
 HidePanelBackground=ar.HidePanelBackground or false,
-AutoScale=ar.AutoScale~=false,
+AutoScale=ar.AutoScale or false,
 OpenButton=ar.OpenButton,
 
 Position=UDim2.new(0.5,0,0.5,0),
