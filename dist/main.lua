@@ -618,7 +618,7 @@ end
 
 function p.Drag(v,x,B)
 local C
-local F,G,H
+local F,G,H,K
 local J={
 CanDraggable=true
 }
@@ -628,8 +628,6 @@ x={v}
 end
 
 local function update(L)
-if not F or not J.CanDraggable then return end
-
 local M=L.Position-G
 p.Tween(v,0.02,{Position=UDim2.new(
 H.X.Scale,H.X.Offset+M.X,
@@ -665,17 +663,17 @@ end
 end)
 
 M.InputChanged:Connect(function(N)
-if F and C==M then
+if C==M and F then
 if N.UserInputType==Enum.UserInputType.MouseMovement or N.UserInputType==Enum.UserInputType.Touch then
-update(N)
+K=N
 end
 end
 end)
 end
 
 e.InputChanged:Connect(function(N)
-if F and C~=nil then
-if N.UserInputType==Enum.UserInputType.MouseMovement or N.UserInputType==Enum.UserInputType.Touch then
+if N==K and F and C~=nil then
+if J.CanDraggable then
 update(N)
 end
 end
